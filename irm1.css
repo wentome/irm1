@@ -1,0 +1,8 @@
+#main_layout{
+/*float:left;*/
+}
+#box{
+    position:fixed;
+    left:1250px;
+    top:20px;
+}

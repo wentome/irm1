@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head> 
+<meta charset="utf-8"> 
+<title>IRM1-C</title>
+<script src="js/jquery-1.10.2.js"></script>
+<script src="js/canvas_lib.js"></script>
+<script src="js/misc_lib.js"></script>
+<script src="js/irm1.js"></script>
+<link rel="stylesheet" href="irm1.css" type="text/css" /> 
+</head>
+<body>
+
+<canvas id="myCanvas" width="1200" height="800" style="border:1px solid #d3d3d3;">
+您的浏览器不支持 HTML5 canvas 标签。</canvas>
+<div id="main_layout">
+    <script>
+	var conf=new Object();
+        var ctx=get_ctx();
+	draw_img(ctx);
+        ajax_send("php/irm1.php","get_conf","data","get_conf(data)");
+        //draw_back_img(ctx);
+	
+	click_action("scan_BT","scan_action()");
+	click_action("MPD_BT","MPD_status()");
+	click_action("Misc_MPD_BT","Misc_MPD_status()");
+        click_action("Raman_MPD_BT","Raman_MPD_status()");
+	click_action("test1_BT","draw_back_img()");
+
+    </script>
+    <div id="box">
+	<pre id="time_display"></pre>
+	<input id="scan_BT" type="checkbox" name="scan_check" value="" >Scan<br>
+	
+	<input  id="MPD_check_BT" type="checkbox" name="MPD_check" value="" >
+	<button id="MPD_BT" type="button">MPD</button><br>
+	
+	<input  id="Misc_check_BT" type="checkbox" name="Misc_check" value="" >
+	<button id="Misc_MPD_BT" type="button">Misc MPD</button><br>
+	
+	<input  id="Raman_check_BT" type="checkbox" name="Raman_check" value="" >
+	<button id="Raman_MPD_BT"type="reset">Raman MPD</button><br>
+        
+	<button id="test1_BT" type="buttin">test</button>
+	<pre id="txt_display"></pre>
+    </div>
+</div>
+</body>
+</html>
